@@ -32,6 +32,17 @@ def draw_cloud(m, x, y):
     draw_circle(1, "black", "white", x + 80 * m, y + 28 * m, 20 * m)
     draw_circle(1, "black", "white", x + 100 * m, y + 28 * m, 20 * m)
 
+def draw_ship(x, y, m):
+    """
+    рисуем корабль.
+    Точка привязки - корма
+
+    """
+    brushColor("brown")
+    penColor("black")
+    penSize(1)
+    arc(x, y, x + 50 * m, y + 50 * m, 180, 270, PIESLICE)
+    rectangle(x + 50 * m / 2, y + 50 * m / 2, x + 150 * m, y + 50 * m)
 
 def main():
     """Основная функция"""
@@ -40,7 +51,9 @@ def main():
     draw_rectangle("yellow", 0, 400, 500, 600)
     draw_cloud(1, 30, 35)
     draw_cloud(0.7, 150, 20)
-    draw_cloud(0.4, 400, 43)
+    draw_cloud(0.4, 260, 43)
+    draw_circle(1, "black", "yellow", 430, 70, 50)
+    draw_ship(250, 300, 1) 
     run()
 
 main()
