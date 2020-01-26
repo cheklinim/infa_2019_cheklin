@@ -36,13 +36,29 @@ def draw_ship(x, y, m):
     """
     рисуем корабль.
     Точка привязки - корма
+    m - масштаб
 
     """
     brushColor("brown")
+    penColor("brown")
+    penSize(1)
+    arc(x, y - m / 2, x + m, y + m / 2, 180, 270, PIESLICE)
+    rectangle(x + m / 2, y, x + 1.5 * m, y + m / 2)
+    polygon([(x + 1.5 * m, y),
+            (x + 2.5 * m, y),
+            (x + 1.5 * m, y + m / 2),
+            (x + 1.5 * m, y)])
+    brushColor("black")
+    penColor("black")
+    rectangle(x + m, y, x + 1.1 * m, y - 1.5 * m)
+    brushColor("white")
     penColor("black")
     penSize(1)
-    arc(x, y, x + 50 * m, y + 50 * m, 180, 270, PIESLICE)
-    rectangle(x + 50 * m / 2, y + 50 * m / 2, x + 150 * m, y + 50 * m)
+    polygon([(x + 1.1 * m, y - 1.5 * m),
+            (x + 1.8 * m, y - m),
+            (x + 1.1 * m, y - 0.2 * m),
+            (x + 1.4 * m, y - m),
+            (x + 1.1 * m, y - 1.5 * m)])
 
 def main():
     """Основная функция"""
@@ -53,7 +69,8 @@ def main():
     draw_cloud(0.7, 150, 20)
     draw_cloud(0.4, 260, 43)
     draw_circle(1, "black", "yellow", 430, 70, 50)
-    draw_ship(250, 300, 1) 
+    draw_ship(200, 320, 50)
+    draw_ship(50, 350, 70)
     run()
 
 main()
